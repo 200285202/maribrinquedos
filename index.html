@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARO Brinquedos - Aluguel de Brinquedos e Decoração para Festas</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fff9fb;
+            color: #333;
+        }
+        
+        /* Cabeçalho com efeito de brilho */
+        header {
+            background: linear-gradient(135deg, #ff66b2, #ff99cc);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 102, 178, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: shine 4s infinite linear;
+            opacity: 0;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(0deg); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: rotate(360deg); opacity: 0; }
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        /* Navegação */
+        nav {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 1px solid #ffccdd;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #ff66b2;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #ff3385;
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff3385;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Destaque Principal */
+        .hero {
+            background-color: #ffecf2;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ffccdd;
+            position: relative;
+        }
+        
+        .hero h2 {
+            color: #ff3385;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #666;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff66b2;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 102, 178, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            background-color: #ff3385;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 102, 178, 0.4);
+        }
+        
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .cta-button:hover::before {
+            opacity: 1;
+            left: 100%;
+        }
+        
+        /* Seção de Produtos */
+        .produtos {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .produtos h2 {
+            text-align: center;
+            color: #ff66b2;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .produtos h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #ff66b2, #ff99cc, #ff66b2);
+            border-radius: 3px;
+        }
+        
+        .categorias {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .categoria-btn {
+            background-color: white;
+            border: 2px solid #ffccdd;
+            color: #ff66b2;
+            padding: 8px 20px;
+            margin: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .categoria-btn:hover, .categoria-btn.ativo {
+            background-color: #ff66b2;
+            color: white;
+            border-color: #ff66b2;
+            transform: scale(1.05);
+        }
+        
+        .vitrine {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(255, 102, 178, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 102, 178, 0.2);
+        }
+        
+        .item.destaque::before {
+            content: "🌟 COMBO ESPECIAL";
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background-color: #ff3385;
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .item-img {
+            height: 200px;
+            background-color: #ffecf2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff66b2;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .item-img::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,102,178,0.1) 0%, rgba(255,153,204,0.1) 100%);
+        }
+        
+        .item-info {
+            padding: 20px;
+        }
+        
+        .item-info h3 {
+            color: #ff3385;
+            margin-bottom: 10px;
+        }
+        
+        .item-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .item-preco {
+            font-weight: bold;
+            color: #ff66b2;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .item-preco .original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        
+        .item-btn {
+            display: inline-block;
+            background-color: #ffccdd;
+            color: #ff3385;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .item-btn:hover {
+            background-color: #ffb3cc;
+            transform: scale(1.05);
+        }
+        
+        /* Rodapé */
+        footer {
+            background: linear-gradient(135deg, #ff66b2, #ff99cc);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-contato {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .footer-contato h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-contato p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-redes {
+            margin-top: 20px;
+        }
+        
+        .footer-redes a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-redes a:hover {
+            color: #ffecf2;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .vitrine {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            
+            .item.destaque::before {
+                right: -25px;
+                font-size: 0.7rem;
+                padding: 3px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MARO Brinquedos</div>
+        <div class="slogan">Festas mágicas com diversão garantida!</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#brinquedos">Brinquedos</a></li>
+            <li><a href="#decoracao">Decoração</a></li>
+            <li><a href="#combos">Combos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h2>Tudo para sua festa de aniversário!</h2>
+        <p>Alugue os melhores brinquedos, decorações temáticas e combos completos para uma festa inesquecível.</p>
+        <a href="#contato" class="cta-button" id="cta-confetti">Faça seu orçamento agora!</a>
+    </section>
+    
+    <section class="produtos" id="brinquedos">
+        <h2>Nossos Brinquedos</h2>
+        
+        <div class="categorias">
+            <button class="categoria-btn ativo">Todos</button>
+            <button class="categoria-btn">Infláveis</button>
+            <button class="categoria-btn">Eletrônicos</button>
+            <button class="categoria-btn">Interativos</button>
+        </div>
+        
+        <div class="vitrine">
+            <div class="item">
+                <div class="item-img">🎪</div>
+                <div class="item-info">
+                    <h3>Castelo Inflável Grande</h3>
+                    <p>Castelo inflável com escorregador e obstáculos, ideal para festas ao ar livre.</p>
+                    <span class="item-preco">R$ 200/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="item-img">🤡</div>
+                <div class="item-info">
+                    <h3>Piscina de Bolinhas</h3>
+                    <p>Piscina de 2m x 2m com 500 bolinhas coloridas e escorregador.</p>
+                    <span class="item-preco">R$ 150/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="item-img">🎯</div>
+                <div class="item-info">
+                    <h3>Jogo de Dardos Eletrônico</h3>
+                    <p>Com placar digital e 6 dardos de segurança para diversão garantida.</p>
+                    <span class="item-preco">R$ 80/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="item-img">🍭</div>
+                <div class="item-info">
+                    <h3>Máquina de Algodão Doce</h3>
+                    <p>Máquina profissional com 5 potes de açúcar colorido incluídos.</p>
+                    <span class="item-preco">R$ 120/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="produtos" id="decoracao">
+        <h2>Decoração Temática</h2>
+        
+        <div class="categorias">
+            <button class="categoria-btn ativo">Todos</button>
+            <button class="categoria-btn">Princesas</button>
+            <button class="categoria-btn">Heróis</button>
+            <button class="categoria-btn">Animais</button>
+        </div>
+        
+        <div class="vitrine">
+            <div class="item">
+                <div class="item-img">👑</div>
+                <div class="item-info">
+                    <h3>Kit Princesa</h3>
+                    <p>Balões, bandeirolas, toalha e itens de mesa no tema princesa.</p>
+                    <span class="item-preco">R$ 180/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="item-img">🦸</div>
+                <div class="item-info">
+                    <h3>Kit Super-Heróis</h3>
+                    <p>Decoração completa com balões personalizados e painel fotográfico.</p>
+                    <span class="item-preco">R$ 180/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="item-img">🦄</div>
+                <div class="item-info">
+                    <h3>Kit Unicórnio</h3>
+                    <p>Balões, guirlandas e painel fotográfico no tema unicórnio mágico.</p>
+                    <span class="item-preco">R$ 200/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="item-img">🎈</div>
+                <div class="item-info">
+                    <h3>Arco de Balões</h3>
+                    <p>Arco decorativo de balões personalizados nas cores de sua escolha.</p>
+                    <span class="item-preco">R$ 120/dia</span>
+                    <a href="#contato" class="item-btn">Alugar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="produtos" id="combos">
+        <h2>Combos Especiais</h2>
+        
+        <div class="categorias">
+            <button class="categoria-btn ativo">Todos</button>
+            <button class="categoria-btn">Infantil</button>
+            <button class="categoria-btn">Temáticos</button>
+            <button class="categoria-btn">Premium</button>
+        </div>
+        
+        <div class="vitrine">
+            <div class="item destaque">
+                <div class="item-img">🎠</div>
+                <div class="item-info">
+                    <h3>Combo Festa Kids</h3>
+                    <p>Castelo inflável + Piscina de bolinhas + Decoração colorida + Máquina de algodão doce.</p>
+                    <span class="item-preco"><span class="original">R$ 550</span> R$ 450/dia</span>
+                    <a href="#contato" class="item-btn">Alugar Combo</a>
+                </div>
+            </div>
+            
+            <div class="item destaque">
+                <div class="item-img">🏰</div>
+                <div class="item-info">
+                    <h3>Combo Princesa</h3>
+                    <p>Castelo inflável + Decoração princesa + Trono fotográfico + Piscina de bolinhas rosa.</p>
+                    <span class="item-preco"><span class="original">R$ 600</span> R$ 500/dia</span>
+                    <a href="#contato" class="item-btn">Alugar Combo</a>
+                </div>
+            </div>
+            
+            <div class="item destaque">
+                <div class="item-img">🦸</div>
+                <div class="item-info">
+                    <h3>Combo Super-Herói</h3>
+                    <p>Pula-pula temático + Decoração heróis + Jogo de dardos + Máquina de pipoca.</p>
+                    <span class="item-preco"><span class="original">R$ 520</span> R$ 450/dia</span>
+                    <a href="#contato" class="item-btn">Alugar Combo</a>
+                </div>
+            </div>
+            
+            <div class="item destaque">
+                <div class="item-img">🎉</div>
+                <div class="item-info">
+                    <h3>Combo Premium</h3>
+                    <p>2 Brinquedos à escolha + Decoração completa + Máquina de algodão + Fotobooth.</p>
+                    <span class="item-preco"><span class="original">R$ 700</span> R$ 600/dia</span>
+                    <a href="#contato" class="item-btn">Alugar Combo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contato">
+        <div class="footer-contato">
+            <h3>Siga-nos nas Redes Sociais</h3>
+            <p>Conecte-se conosco para ver mais ideias de festas e promoções exclusivas!</p>
+            <div class="footer-redes">
+                <a href="https://www.instagram.com" target="_blank"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" style="width: 32px; height: 32px;"></a>
+                <a href="https://www.whatsapp.com" target="_blank"><img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" style="width: 32px; height: 32px;"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook" style="width: 32px; height: 32px;"></a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            © 2025 MARO Brinquedos - Todos os direitos reservados
+        </div>
+    </footer>
+
+    <!-- JSConfetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.11.0/dist/js-confetti.browser.js"></script>
+    <script>
+        const jsConfetti = new JSConfetti();
+
+        // Trigger confetti on page load
+        window.addEventListener('load', () => {
+            jsConfetti.addConfetti({
+                emojis: ['🎉', '🎈', '✨'],
+                confettiColors: ['#ff66b2', '#ff99cc', '#ffffff'],
+                confettiRadius: 6,
+                confettiNumber: 100,
+            });
+        });
+
+        // Trigger confetti when clicking the CTA button
+        document.getElementById('cta-confetti').addEventListener('click', () => {
+            jsConfetti.addConfetti({
+                emojis: ['🎉', '🎈', '✨'],
+                confettiColors: ['#ff66b2', '#ff99cc', '#ffffff'],
+                confettiRadius: 6,
+                confettiNumber: 50,
+            });
+        });
+    </script>
+</body>
+</html>
